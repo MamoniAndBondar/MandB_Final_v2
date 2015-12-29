@@ -5,6 +5,7 @@
 #include <QTableView>
 #include "dialog.h"
 #include "dialogdel.h"
+#include "dialogupdate.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -75,5 +76,20 @@ void MainWindow::on_actionDel_triggered()
         QString str = str_del.arg(dlg.Del());
         qDebug() << str;
         bool b = del_query.exec(str);
+    }
+}
+
+void MainWindow::on_actionUpdate_triggered()
+{
+    DialogUpdate dlg(this);
+    if (dlg.exec()==QDialog::Accepted)
+    {
+        QSqlQuery up_query;
+
+        QString str_del = "UPDATE my_table SET %1=%3 WHERE rowid=%2; ";
+        QString str = str_del.arg(dlg.Up_1()).arg(dlg.Up_2()).arg(dlg.Up_3());
+        qDebug() << str;
+        bool b = up_query.exec(str);
+
     }
 }

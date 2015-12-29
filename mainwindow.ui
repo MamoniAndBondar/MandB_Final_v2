@@ -40,6 +40,7 @@
     </property>
     <addaction name="actionOpen"/>
     <addaction name="actionAdd"/>
+    <addaction name="actionUpdate"/>
     <addaction name="actionDel"/>
    </widget>
    <addaction name="menu"/>
@@ -66,6 +67,11 @@
   <action name="actionDel">
    <property name="text">
     <string>Удалить строку</string>
+   </property>
+  </action>
+  <action name="actionUpdate">
+   <property name="text">
+    <string>Изменить значение ячейк </string>
    </property>
   </action>
  </widget>

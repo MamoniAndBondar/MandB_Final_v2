@@ -22,6 +22,8 @@ private slots:
 
     void on_actionDel_triggered();
 
+    void on_actionUpdate_triggered();
+
 private:
     Ui::MainWindow *ui;
 };
