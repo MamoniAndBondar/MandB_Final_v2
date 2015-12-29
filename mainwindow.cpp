@@ -4,6 +4,7 @@
 #include <QDebug>
 #include <QTableView>
 #include "dialog.h"
+#include "dialogdel.h"
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
@@ -59,5 +60,20 @@ void MainWindow::on_actionAdd_triggered()
         my_query.bindValue(":Height", dlg.Line_7());
         my_query.bindValue(":Weight", dlg.Line_8());
         my_query.exec();
+    }
+}
+
+void MainWindow::on_actionDel_triggered()
+{
+    DialogDel dlg(this);
+    if (dlg.exec()==QDialog::Accepted)
+    {
+        QSqlQuery del_query;
+        //del_query.prepare("DELETE FROM my_table WHERE rowid=2");
+
+        QString str_del = "DELETE FROM my_table WHERE rowid=%1 ";
+        QString str = str_del.arg(dlg.Del());
+        qDebug() << str;
+        bool b = del_query.exec(str);
     }
 }

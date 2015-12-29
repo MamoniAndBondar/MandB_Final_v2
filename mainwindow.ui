@@ -40,6 +40,7 @@
     </property>
     <addaction name="actionOpen"/>
     <addaction name="actionAdd"/>
+    <addaction name="actionDel"/>
    </widget>
    <addaction name="menu"/>
   </widget>
@@ -60,6 +61,11 @@
   <action name="actionAdd">
    <property name="text">
     <string>Добавить строку</string>
+   </property>
+  </action>
+  <action name="actionDel">
+   <property name="text">
+    <string>Удалить строку</string>
    </property>
   </action>
  </widget>
