@@ -27,13 +27,29 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_actionOpen_triggered()
 {
+    /*QTableView view;
     QSqlTableModel model;
-    model.setTable("compromising");
+    model.setTable("my_table");
     model.select();
     model.setEditStrategy(QSqlTableModel::OnFieldChange);
 
-    ui->tableView->setModel(&model);
-    ui->tableView->show();
+    view.setModel(&model);
+    view.show();
+    view.setFocus();
+    //ui->tableView->setModel(&model);
+    //ui->tableView->show();*/
+
+    QSqlTableModel *model = new QSqlTableModel;
+    model->setTable("my_table");
+    model->setEditStrategy(QSqlTableModel::OnManualSubmit);
+    model->select();
+    model->setHeaderData(0, Qt::Horizontal, tr("Family"));
+    model->setHeaderData(1, Qt::Horizontal, tr("Name"));
+
+    QTableView *view = new QTableView;
+    view->setModel(model);
+    //view->hidenColumn(0);
+    view->show();
 }
 
 void MainWindow::on_actionAdd_triggered()
